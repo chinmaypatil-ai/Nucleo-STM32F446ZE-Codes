@@ -27,11 +27,12 @@ void loop() {
     ps4data[2] = map(PS4.R2Value() - PS4.L2Value(), -255, 255, -127, 127);
 
     // Print data for debugging
-    Serial.println((String)ps4data[0] + " " + ps4data[1] + " " + ps4data[2]);
+   
   }
 
-  delay(10);  // Small delay for stability
+  // delay(10);  // Small delay for stability
 }
+
 
 // Event called when master requests data
 void requestEvent() {

@@ -1,0 +1,10 @@
+../Core/Inc/BNO055_STM32.h:26:6:bno055_assignI2C	16	static
+../Core/Inc/BNO055_STM32.h:30:6:bno055_delay	16	static
+../Core/Inc/BNO055_STM32.h:38:6:bno055_writeData	40	static
+../Core/Inc/BNO055_STM32.h:102:6:bno055_readData	24	static
+../Core/Src/main.c:71:5:main	144	static
+../Core/Src/main.c:129:6:SystemClock_Config	88	static
+../Core/Src/main.c:183:13:MX_I2C1_Init	8	static
+../Core/Src/main.c:217:13:MX_USART3_UART_Init	8	static
+../Core/Src/main.c:250:13:MX_GPIO_Init	32	static
+../Core/Src/main.c:274:6:Error_Handler	4	static,ignoring_inline_asm
