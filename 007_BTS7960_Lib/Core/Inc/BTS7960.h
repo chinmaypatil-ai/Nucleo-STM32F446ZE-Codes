@@ -1,7 +1,7 @@
 /*
  * BTS7960.h
  *
- *  Created on: Mar 15, 2026
+ *  Created on: Mar 26, 2026
  *      Author: pchin
  */
 
@@ -25,13 +25,16 @@ typedef struct{
 	 TIM_HandleTypeDef *htim2;
 	 uint32_t Channel1;
 	 uint32_t Channel2;
+	 uint8_t bus1;
+	 uint8_t bus2;
+	 uint16_t freq;
 }BTS;  // BTS it is used to define a object for  1 Motor Driver
 
 
 
-void InitBTS(BTS *Motor , TIM_HandleTypeDef *htim1, uint32_t Channel1,TIM_HandleTypeDef *htim2, uint32_t Channel2, uint8_t bus,uint16_t freq);
-void RotateMotor(BTS *Motor , int16_t Value);
-void StopMotor(BTS *Motor);
-void TestMotor(BTS *Motor);
+void InitBTS(BTS *Motor , TIM_HandleTypeDef *htim1, uint32_t Channel1,uint8_t bus1,TIM_HandleTypeDef *htim2, uint32_t Channel2, uint8_t bus2,uint16_t freq);
+void RotateBTS(BTS *Motor , int16_t Value);
+void StopBTS(BTS *Motor);
+void TestBTS(BTS *Motor);
 
 #endif /* INC_BTS7960_H_ */

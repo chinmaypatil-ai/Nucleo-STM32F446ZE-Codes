@@ -33,7 +33,7 @@ void InitCytron(Cytron *Moter , TIM_HandleTypeDef *htim, uint32_t Channel, GPIO_
 
 }
 
-void RotateMoter(Cytron *Moter , int16_t Value)
+void RotateCytron(Cytron *Moter , int16_t Value)
 {
 
 	Moter->PWM_Value = Value;
@@ -53,20 +53,20 @@ void RotateMoter(Cytron *Moter , int16_t Value)
 
 }
 
-void RotateForward(Cytron *Moter)
+void ForwardCytron(Cytron *Moter)
 {
 
      HAL_GPIO_WritePin(Moter->GPIO_DIR_PORT, Moter->GPIO_DIR_PIN, 1);
 	__HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, 30);
 }
 
-void RotateReverse(Cytron *Moter)
+void ReverseCytron(Cytron *Moter)
 {
     HAL_GPIO_WritePin(Moter->GPIO_DIR_PORT, Moter->GPIO_DIR_PIN, 0);
 	__HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, 30);
 }
 
-void Stop(Cytron *Moter)
+void StopCytron(Cytron *Moter)
 {
 	__HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, 0);
 }

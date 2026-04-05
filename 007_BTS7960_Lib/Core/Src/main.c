@@ -90,7 +90,7 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  InitBTS(&B1 ,&htim1, TIM_CHANNEL_1, &htim1,TIM_CHANNEL_2,2,20000); //Enter the timer and Channel number for intialization
+  InitBTS(&B1 ,&htim1, TIM_CHANNEL_1,2, &htim1,TIM_CHANNEL_2,2,20000); //Enter the timer and Channel number for intialization
 
   /* USER CODE END 2 */
 
@@ -101,7 +101,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  RotateMotor(&B1,200);
+	  RotateBTS(&B1,200);
   }
   /* USER CODE END 3 */
 }

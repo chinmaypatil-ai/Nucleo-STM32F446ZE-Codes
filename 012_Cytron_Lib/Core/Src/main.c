@@ -99,7 +99,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	    RotateMoter(&c1, 30);
+	    RotateCytron(&c1, 30);
 
     /* USER CODE BEGIN 3 */
   }

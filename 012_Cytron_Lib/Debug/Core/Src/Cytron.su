@@ -1,5 +1,5 @@
 ../Core/Src/Cytron.c:9:6:InitCytron	40	static
-../Core/Src/Cytron.c:36:6:RotateMoter	16	static
-../Core/Src/Cytron.c:56:6:RotateForward	16	static
-../Core/Src/Cytron.c:63:6:RotateReverse	16	static
-../Core/Src/Cytron.c:69:6:Stop	16	static
+../Core/Src/Cytron.c:36:6:RotateCytron	16	static
+../Core/Src/Cytron.c:56:6:ForwardCytron	16	static
+../Core/Src/Cytron.c:63:6:ReverseCytron	16	static
+../Core/Src/Cytron.c:69:6:StopCytron	16	static

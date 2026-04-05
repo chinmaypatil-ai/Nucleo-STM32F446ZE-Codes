@@ -39,13 +39,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_line   0000cc0d  00000000  00000000  00033c09  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000ceaf0  00000000  00000000  00040816  2**0
+ 18 .debug_str    000ceb02  00000000  00000000  00040816  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  0010f306  2**0
+ 19 .comment      00000043  00000000  00000000  0010f318  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002bec  00000000  00000000  0010f34c  2**2
+ 20 .debug_frame  00002bec  00000000  00000000  0010f35c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000004c  00000000  00000000  00111f38  2**0
+ 21 .debug_line_str 0000004c  00000000  00000000  00111f48  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -821,9 +821,9 @@ void InitCytron(Cytron *Moter , TIM_HandleTypeDef *htim, uint32_t Channel, GPIO_
  80009b0:	055d4a80 	.word	0x055d4a80
  80009b4:	0aba9500 	.word	0x0aba9500
 
-080009b8 <RotateMoter>:
+080009b8 <RotateCytron>:
 
-void RotateMoter(Cytron *Moter , int16_t Value)
+void RotateCytron(Cytron *Moter , int16_t Value)
 {
  80009b8:	b580      	push	{r7, lr}
  80009ba:	b082      	sub	sp, #8
@@ -839,7 +839,7 @@ void RotateMoter(Cytron *Moter , int16_t Value)
 	if(Value >= 0){
  80009ca:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  80009ce:	2b00      	cmp	r3, #0
- 80009d0:	db43      	blt.n	8000a5a <RotateMoter+0xa2>
+ 80009d0:	db43      	blt.n	8000a5a <RotateCytron+0xa2>
 	      HAL_GPIO_WritePin(Moter->GPIO_DIR_PORT, Moter->GPIO_DIR_PIN, Moter->Direction);
  80009d2:	687b      	ldr	r3, [r7, #4]
  80009d4:	6898      	ldr	r0, [r3, #8]
@@ -853,7 +853,7 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  80009e4:	687b      	ldr	r3, [r7, #4]
  80009e6:	699b      	ldr	r3, [r3, #24]
  80009e8:	2b00      	cmp	r3, #0
- 80009ea:	d10a      	bne.n	8000a02 <RotateMoter+0x4a>
+ 80009ea:	d10a      	bne.n	8000a02 <RotateCytron+0x4a>
  80009ec:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  80009f0:	2b00      	cmp	r3, #0
  80009f2:	bfb8      	it	lt
@@ -869,12 +869,12 @@ void RotateMoter(Cytron *Moter , int16_t Value)
 
 
 }
- 8000a00:	e09c      	b.n	8000b3c <RotateMoter+0x184>
+ 8000a00:	e09c      	b.n	8000b3c <RotateCytron+0x184>
 	      __HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, abs(Value));
  8000a02:	687b      	ldr	r3, [r7, #4]
  8000a04:	699b      	ldr	r3, [r3, #24]
  8000a06:	2b04      	cmp	r3, #4
- 8000a08:	d10b      	bne.n	8000a22 <RotateMoter+0x6a>
+ 8000a08:	d10b      	bne.n	8000a22 <RotateCytron+0x6a>
  8000a0a:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  8000a0e:	2b00      	cmp	r3, #0
  8000a10:	bfb8      	it	lt
@@ -885,11 +885,11 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000a1a:	681a      	ldr	r2, [r3, #0]
  8000a1c:	460b      	mov	r3, r1
  8000a1e:	6393      	str	r3, [r2, #56]	@ 0x38
- 8000a20:	e08c      	b.n	8000b3c <RotateMoter+0x184>
+ 8000a20:	e08c      	b.n	8000b3c <RotateCytron+0x184>
  8000a22:	687b      	ldr	r3, [r7, #4]
  8000a24:	699b      	ldr	r3, [r3, #24]
  8000a26:	2b08      	cmp	r3, #8
- 8000a28:	d10b      	bne.n	8000a42 <RotateMoter+0x8a>
+ 8000a28:	d10b      	bne.n	8000a42 <RotateCytron+0x8a>
  8000a2a:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  8000a2e:	2b00      	cmp	r3, #0
  8000a30:	bfb8      	it	lt
@@ -900,7 +900,7 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000a3a:	681a      	ldr	r2, [r3, #0]
  8000a3c:	460b      	mov	r3, r1
  8000a3e:	63d3      	str	r3, [r2, #60]	@ 0x3c
- 8000a40:	e07c      	b.n	8000b3c <RotateMoter+0x184>
+ 8000a40:	e07c      	b.n	8000b3c <RotateCytron+0x184>
  8000a42:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  8000a46:	2b00      	cmp	r3, #0
  8000a48:	bfb8      	it	lt
@@ -912,11 +912,11 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000a54:	460b      	mov	r3, r1
  8000a56:	6413      	str	r3, [r2, #64]	@ 0x40
 }
- 8000a58:	e070      	b.n	8000b3c <RotateMoter+0x184>
+ 8000a58:	e070      	b.n	8000b3c <RotateCytron+0x184>
 	else if (Value < 0){
  8000a5a:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  8000a5e:	2b00      	cmp	r3, #0
- 8000a60:	da48      	bge.n	8000af4 <RotateMoter+0x13c>
+ 8000a60:	da48      	bge.n	8000af4 <RotateCytron+0x13c>
 		HAL_GPIO_WritePin(Moter->GPIO_DIR_PORT, Moter->GPIO_DIR_PIN, !(Moter->Direction));
  8000a62:	687b      	ldr	r3, [r7, #4]
  8000a64:	6898      	ldr	r0, [r3, #8]
@@ -935,7 +935,7 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000a7e:	687b      	ldr	r3, [r7, #4]
  8000a80:	699b      	ldr	r3, [r3, #24]
  8000a82:	2b00      	cmp	r3, #0
- 8000a84:	d10a      	bne.n	8000a9c <RotateMoter+0xe4>
+ 8000a84:	d10a      	bne.n	8000a9c <RotateCytron+0xe4>
  8000a86:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  8000a8a:	2b00      	cmp	r3, #0
  8000a8c:	bfb8      	it	lt
@@ -946,12 +946,12 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000a96:	681b      	ldr	r3, [r3, #0]
  8000a98:	635a      	str	r2, [r3, #52]	@ 0x34
 }
- 8000a9a:	e04f      	b.n	8000b3c <RotateMoter+0x184>
+ 8000a9a:	e04f      	b.n	8000b3c <RotateCytron+0x184>
 		__HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, abs(Value));
  8000a9c:	687b      	ldr	r3, [r7, #4]
  8000a9e:	699b      	ldr	r3, [r3, #24]
  8000aa0:	2b04      	cmp	r3, #4
- 8000aa2:	d10b      	bne.n	8000abc <RotateMoter+0x104>
+ 8000aa2:	d10b      	bne.n	8000abc <RotateCytron+0x104>
  8000aa4:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  8000aa8:	2b00      	cmp	r3, #0
  8000aaa:	bfb8      	it	lt
@@ -962,11 +962,11 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000ab4:	681a      	ldr	r2, [r3, #0]
  8000ab6:	460b      	mov	r3, r1
  8000ab8:	6393      	str	r3, [r2, #56]	@ 0x38
- 8000aba:	e03f      	b.n	8000b3c <RotateMoter+0x184>
+ 8000aba:	e03f      	b.n	8000b3c <RotateCytron+0x184>
  8000abc:	687b      	ldr	r3, [r7, #4]
  8000abe:	699b      	ldr	r3, [r3, #24]
  8000ac0:	2b08      	cmp	r3, #8
- 8000ac2:	d10b      	bne.n	8000adc <RotateMoter+0x124>
+ 8000ac2:	d10b      	bne.n	8000adc <RotateCytron+0x124>
  8000ac4:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  8000ac8:	2b00      	cmp	r3, #0
  8000aca:	bfb8      	it	lt
@@ -977,7 +977,7 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000ad4:	681a      	ldr	r2, [r3, #0]
  8000ad6:	460b      	mov	r3, r1
  8000ad8:	63d3      	str	r3, [r2, #60]	@ 0x3c
- 8000ada:	e02f      	b.n	8000b3c <RotateMoter+0x184>
+ 8000ada:	e02f      	b.n	8000b3c <RotateCytron+0x184>
  8000adc:	f9b7 3002 	ldrsh.w	r3, [r7, #2]
  8000ae0:	2b00      	cmp	r3, #0
  8000ae2:	bfb8      	it	lt
@@ -989,43 +989,43 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000aee:	460b      	mov	r3, r1
  8000af0:	6413      	str	r3, [r2, #64]	@ 0x40
 }
- 8000af2:	e023      	b.n	8000b3c <RotateMoter+0x184>
+ 8000af2:	e023      	b.n	8000b3c <RotateCytron+0x184>
 		__HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, 0);
  8000af4:	687b      	ldr	r3, [r7, #4]
  8000af6:	699b      	ldr	r3, [r3, #24]
  8000af8:	2b00      	cmp	r3, #0
- 8000afa:	d105      	bne.n	8000b08 <RotateMoter+0x150>
+ 8000afa:	d105      	bne.n	8000b08 <RotateCytron+0x150>
  8000afc:	687b      	ldr	r3, [r7, #4]
  8000afe:	695b      	ldr	r3, [r3, #20]
  8000b00:	681b      	ldr	r3, [r3, #0]
  8000b02:	2200      	movs	r2, #0
  8000b04:	635a      	str	r2, [r3, #52]	@ 0x34
 }
- 8000b06:	e019      	b.n	8000b3c <RotateMoter+0x184>
+ 8000b06:	e019      	b.n	8000b3c <RotateCytron+0x184>
 		__HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, 0);
  8000b08:	687b      	ldr	r3, [r7, #4]
  8000b0a:	699b      	ldr	r3, [r3, #24]
  8000b0c:	2b04      	cmp	r3, #4
- 8000b0e:	d105      	bne.n	8000b1c <RotateMoter+0x164>
+ 8000b0e:	d105      	bne.n	8000b1c <RotateCytron+0x164>
  8000b10:	687b      	ldr	r3, [r7, #4]
  8000b12:	695b      	ldr	r3, [r3, #20]
  8000b14:	681a      	ldr	r2, [r3, #0]
  8000b16:	2300      	movs	r3, #0
  8000b18:	6393      	str	r3, [r2, #56]	@ 0x38
 }
- 8000b1a:	e00f      	b.n	8000b3c <RotateMoter+0x184>
+ 8000b1a:	e00f      	b.n	8000b3c <RotateCytron+0x184>
 		__HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, 0);
  8000b1c:	687b      	ldr	r3, [r7, #4]
  8000b1e:	699b      	ldr	r3, [r3, #24]
  8000b20:	2b08      	cmp	r3, #8
- 8000b22:	d105      	bne.n	8000b30 <RotateMoter+0x178>
+ 8000b22:	d105      	bne.n	8000b30 <RotateCytron+0x178>
  8000b24:	687b      	ldr	r3, [r7, #4]
  8000b26:	695b      	ldr	r3, [r3, #20]
  8000b28:	681a      	ldr	r2, [r3, #0]
  8000b2a:	2300      	movs	r3, #0
  8000b2c:	63d3      	str	r3, [r2, #60]	@ 0x3c
 }
- 8000b2e:	e005      	b.n	8000b3c <RotateMoter+0x184>
+ 8000b2e:	e005      	b.n	8000b3c <RotateCytron+0x184>
 		__HAL_TIM_SET_COMPARE(Moter->htim,Moter->Channel, 0);
  8000b30:	687b      	ldr	r3, [r7, #4]
  8000b32:	695b      	ldr	r3, [r3, #20]
@@ -1033,7 +1033,7 @@ void RotateMoter(Cytron *Moter , int16_t Value)
  8000b36:	2300      	movs	r3, #0
  8000b38:	6413      	str	r3, [r2, #64]	@ 0x40
 }
- 8000b3a:	e7ff      	b.n	8000b3c <RotateMoter+0x184>
+ 8000b3a:	e7ff      	b.n	8000b3c <RotateCytron+0x184>
  8000b3c:	bf00      	nop
  8000b3e:	3708      	adds	r7, #8
  8000b40:	46bd      	mov	sp, r7
@@ -1092,10 +1092,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	    RotateMoter(&c1, 30);
+	    RotateCytron(&c1, 30);
  8000b7a:	211e      	movs	r1, #30
  8000b7c:	4803      	ldr	r0, [pc, #12]	@ (8000b8c <main+0x48>)
- 8000b7e:	f7ff ff1b 	bl	80009b8 <RotateMoter>
+ 8000b7e:	f7ff ff1b 	bl	80009b8 <RotateCytron>
  8000b82:	e7fa      	b.n	8000b7a <main+0x36>
  8000b84:	40020c00 	.word	0x40020c00
  8000b88:	20000048 	.word	0x20000048

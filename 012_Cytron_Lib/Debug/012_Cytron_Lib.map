@@ -128,11 +128,12 @@ Discarded input sections
  .text          0x00000000        0x0 ./Core/Src/Cytron.o
  .data          0x00000000        0x0 ./Core/Src/Cytron.o
  .bss           0x00000000        0x0 ./Core/Src/Cytron.o
- .text.RotateForward
+ .text.ForwardCytron
                 0x00000000       0x66 ./Core/Src/Cytron.o
- .text.RotateReverse
+ .text.ReverseCytron
                 0x00000000       0x66 ./Core/Src/Cytron.o
- .text.Stop     0x00000000       0x5a ./Core/Src/Cytron.o
+ .text.StopCytron
+                0x00000000       0x5a ./Core/Src/Cytron.o
  .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
@@ -2940,9 +2941,9 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .text.InitCytron
                 0x080008ac      0x10c ./Core/Src/Cytron.o
                 0x080008ac                InitCytron
- .text.RotateMoter
+ .text.RotateCytron
                 0x080009b8      0x18c ./Core/Src/Cytron.o
-                0x080009b8                RotateMoter
+                0x080009b8                RotateCytron
  .text.main     0x08000b44       0x4c ./Core/Src/main.o
                 0x08000b44                main
  .text.SystemClock_Config
@@ -3577,34 +3578,34 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x00007a43     0x37b8 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
  .debug_line    0x0000b1fb     0x1a12 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
 
-.debug_str      0x00000000    0xceaf0
- .debug_str     0x00000000    0xcbb6c ./Core/Src/Cytron.o
-                              0xcbefb (size before relaxing)
- .debug_str     0x000cbb6c      0x4aa ./Core/Src/main.o
-                              0xcc345 (size before relaxing)
- .debug_str     0x000cc016       0x62 ./Core/Src/stm32f4xx_hal_msp.o
+.debug_str      0x00000000    0xceb02
+ .debug_str     0x00000000    0xcbb7e ./Core/Src/Cytron.o
+                              0xcbf02 (size before relaxing)
+ .debug_str     0x000cbb7e      0x4aa ./Core/Src/main.o
+                              0xcc346 (size before relaxing)
+ .debug_str     0x000cc028       0x62 ./Core/Src/stm32f4xx_hal_msp.o
                               0xc7f5c (size before relaxing)
- .debug_str     0x000cc078       0xc9 ./Core/Src/stm32f4xx_it.o
+ .debug_str     0x000cc08a       0xc9 ./Core/Src/stm32f4xx_it.o
                               0xc78b1 (size before relaxing)
- .debug_str     0x000cc141       0xdb ./Core/Src/system_stm32f4xx.o
+ .debug_str     0x000cc153       0xdb ./Core/Src/system_stm32f4xx.o
                               0xc7a00 (size before relaxing)
- .debug_str     0x000cc21c       0x44 ./Core/Startup/startup_stm32f446zetx.o
+ .debug_str     0x000cc22e       0x44 ./Core/Startup/startup_stm32f446zetx.o
                                  0x68 (size before relaxing)
- .debug_str     0x000cc260      0xb38 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_str     0x000cc272      0xb38 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
                               0xc85c5 (size before relaxing)
- .debug_str     0x000ccd98      0x397 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_str     0x000ccdaa      0x397 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
                               0xc831c (size before relaxing)
- .debug_str     0x000cd12f      0x131 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_str     0x000cd141      0x131 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
                               0xc7b7b (size before relaxing)
- .debug_str     0x000cd260      0x135 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o
+ .debug_str     0x000cd272      0x135 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o
                               0xc7bd8 (size before relaxing)
- .debug_str     0x000cd395      0x233 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_str     0x000cd3a7      0x233 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
                               0xc7e39 (size before relaxing)
- .debug_str     0x000cd5c8      0x31c ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
+ .debug_str     0x000cd5da      0x31c ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
                               0xc7e6c (size before relaxing)
- .debug_str     0x000cd8e4      0xd79 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_str     0x000cd8f6      0xd79 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
                               0xc8d65 (size before relaxing)
- .debug_str     0x000ce65d      0x493 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_str     0x000ce66f      0x493 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
                               0xc8571 (size before relaxing)
 
 .comment        0x00000000       0x43

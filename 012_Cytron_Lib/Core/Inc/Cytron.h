@@ -28,7 +28,7 @@ typedef struct{
 }Cytron;
 
 void InitCytron(Cytron *Motor , TIM_HandleTypeDef *htim, uint32_t Channel, GPIO_TypeDef* GPIO_DIR_PORT, uint16_t GPIO_DIR_PIN, uint8_t Direction, uint8_t bus,uint16_t freq);
-void RotateMoter(Cytron *Motor , int16_t Value);
+void RotateCytron(Cytron *Motor , int16_t Value);
 void RotateForward(Cytron *Motor);
 void RotateReverse(Cytron *Motor);
 void Stop(Cytron *Motor);
