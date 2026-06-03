@@ -1,0 +1,8 @@
+../Core/Src/tfluna_uart.c:14:16:calc_checksum	24	static
+../Core/Src/tfluna_uart.c:25:6:TFLuna_Init	16	static
+../Core/Src/tfluna_uart.c:39:15:TFLuna_ReadBlocking	24	static
+../Core/Src/tfluna_uart.c:89:15:TFLuna_ParseFrame	24	static
+../Core/Src/tfluna_uart.c:127:15:TFLuna_SendCommand	72	static
+../Core/Src/tfluna_uart.c:157:15:TFLuna_SetFrameRate	24	static
+../Core/Src/tfluna_uart.c:165:15:TFLuna_SoftReset	16	static
+../Core/Src/tfluna_uart.c:170:15:TFLuna_SaveSettings	16	static
